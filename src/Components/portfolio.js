@@ -115,13 +115,15 @@ const CryptoPortfolio = () => {
   );
 
   const renderNFTCard = (nft) => (
-    <Card className="mb-3 border-0 rounded-4" style={{ backgroundColor: "#F6F6F6" }}>
-      <Card.Img variant="top" src={nft.image} className="p-3" />
-      <Card.Body className="text-center">
-        <Card.Title className="mb-0 fs-6">{nft.name}</Card.Title>
-        <Card.Text className="mb-0 fw-bold">{nft.price} {nft.symbol}</Card.Text>
-      </Card.Body>
-    </Card>
+    <Col xs={6} className="mb-3">
+      <Card className="border-0 rounded-4 h-100" style={{ backgroundColor: "#F6F6F6" }}>
+        <Card.Img variant="top" src={nft.image} className="p-2" />
+        <Card.Body className="text-center p-2">
+          <Card.Title className="mb-0 fs-6">{nft.name}</Card.Title>
+          <Card.Text className="mb-0 fw-bold">{nft.price} {nft.symbol}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 
   return (
@@ -131,11 +133,13 @@ const CryptoPortfolio = () => {
         {categoryData.map((category, index) => (
           <Col md={4} key={index}>
             {renderCategoryCard(category)}
-            {category.items.map((item, itemIndex) => (
-              <React.Fragment key={itemIndex}>
-                {category.name === "NFT" ? renderNFTCard(item) : renderCoinCard(item)}
-              </React.Fragment>
-            ))}
+            {category.name === "NFT" ? (
+              <Row>
+                {category.items.map((item, itemIndex) => renderNFTCard(item))}
+              </Row>
+            ) : (
+              category.items.map((item, itemIndex) => renderCoinCard(item))
+            )}
           </Col>
         ))}
       </Row>
