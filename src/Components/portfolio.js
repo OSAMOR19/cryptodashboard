@@ -128,6 +128,7 @@ const CryptoPortfolio = () => {
 
   return (
     <Container fluid className="mt-3">
+      <h6 className=" text-muted text-center mb-3">All Network</h6>
       <h1 className="mb-4 text-center mt-4">$438,829.39</h1>
       <Row>
         {categoryData.map((category, index) => (
