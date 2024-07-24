@@ -10,7 +10,7 @@ const SideNav = () => {
         <img src={Logo} alt="Logo" style={{ width: "80px", height: "auto" }} />
       </div>
 
-      <Nav className="flex-column w-100">
+      <Nav className="flex-column mt-5 w-100">
         <Nav.Link href="#portfolio" className="text-dark">
           <Wallet className="me-2" />
           Portfolio
